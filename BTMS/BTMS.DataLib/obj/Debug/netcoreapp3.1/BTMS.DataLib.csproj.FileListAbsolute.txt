@@ -1,0 +1,9 @@
+D:\WADA50\Project\BTMS\BTMS.DataLib\bin\Debug\netcoreapp3.1\BTMS.DataLib.deps.json
+D:\WADA50\Project\BTMS\BTMS.DataLib\bin\Debug\netcoreapp3.1\BTMS.DataLib.dll
+D:\WADA50\Project\BTMS\BTMS.DataLib\bin\Debug\netcoreapp3.1\BTMS.DataLib.pdb
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.AssemblyInfoInputs.cache
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.AssemblyInfo.cs
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.csproj.CoreCompileInputs.cache
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.dll
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.pdb
+D:\WADA50\Project\BTMS\BTMS.DataLib\obj\Debug\netcoreapp3.1\BTMS.DataLib.csprojAssemblyReference.cache

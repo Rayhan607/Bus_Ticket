@@ -1,0 +1,64 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+     
+     >
+   
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span class="logo-image">
+            <img src="../../../../assets/bus-svgrepo-com-2.svg" style="width:45px" />
+          </span>
+          <span>{{appName}}</span>
+         
+
+        </mat-toolbar-row>
+        <mat-divider></mat-divider>
+      
+      </mat-toolbar>
+   
+  
+    <ng-material-multilevel-menu [configuration]='config'
+    [items]='navItems'>
+</ng-material-multilevel-menu>
+<mat-nav-list class="bottom-link">
+
+  <a mat-list-item  [routerLink]="['/settings']"><mat-icon style="margin-right:16px; ">settings</mat-icon> Settings</a>
+</mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+       >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>{{appName}}</span>
+      <span class="spacer"></span>
+      <a mat-button [routerLink]="['/home']">Home</a>
+      <a mat-icon-button  [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></a>
+      <!--menu-->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item class="link-160">
+          <mat-icon>login</mat-icon>
+          <span>Login</span>
+        </button>
+        
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          <span>Logout</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          <span>Settings</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

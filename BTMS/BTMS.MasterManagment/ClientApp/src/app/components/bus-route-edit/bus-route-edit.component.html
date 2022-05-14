@@ -1,0 +1,83 @@
+<div class="view-container">
+    <div class="form-container">
+      <mat-card class="mat-elevation-z5">
+        <mat-card-header>
+          <mat-card-title>Edit Route</mat-card-title>
+          <mat-card-subtitle>Fill the form</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+  
+          <form [formGroup]="editForm" (ngSubmit)="save()">
+            <mat-form-field appearance="fill" class="fw">
+              <mat-label>From</mat-label>
+              <input matInput type="text" formControlName="from">
+              <mat-error *ngIf="editForm.controls['from'].hasError('required')">
+                From is <strong>required</strong>
+              </mat-error>
+  
+            </mat-form-field>
+  
+            <mat-form-field appearance="fill" class="fw">
+              <mat-label>To</mat-label>
+              <input matInput type="text" formControlName="to">
+              <mat-error *ngIf="editForm.controls['to'].hasError('required')">
+                From is <strong>required</strong>
+              </mat-error>
+  
+            </mat-form-field>
+  
+            <div class="fw link-right">
+              <button type="button" mat-raised-button (click)="addBoardingPoint()" ><mat-icon>add</mat-icon></button>
+            </div>
+            <ng-container formArrayName="boardingPoints" *ngFor="let p of boardingPoints.controls; let i = index">
+  
+              <div [formGroupName]="i" class="boarding-point-row">
+                  <input type="hidden" formControlName="boardingPointId" />
+                <mat-form-field class="fw"  appearance="standard">
+                  <mat-label>Point name</mat-label>
+                  <input matInput formControlName="pointName" [matAutocomplete]="auto" />
+                  <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of pointNames" [value]="option">
+                      {{option}}
+                    </mat-option>
+                  </mat-autocomplete>
+                  <mat-error *ngIf="p.get('pointName')?.hasError('required')">Point name is
+                    <strong>required</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="fw" appearance="standard">
+                  <mat-label>Address</mat-label>
+                  <input matInput formControlName="address">
+                  <mat-error *ngIf="p.get('address')?.hasError('required')">Price is <strong>required</strong>
+                  </mat-error>
+                </mat-form-field>
+                <div class="fw">
+                  <button type="button" [hidden]="boardingPoints.controls.length < 2" (click)="removeBoardingPoint(i)" mat-icon-button>
+                    <mat-icon>delete</mat-icon>
+                  </button>
+                </div>
+              </div>
+  
+  
+  
+            </ng-container>
+  
+  
+  
+  
+            <div appearance="fill" class="fw">
+              <button type="submit"  mat-raised-button color="primary">Save</button>
+            </div>
+  
+          </form>
+  
+        </mat-card-content>
+        <mat-card-content>
+          <mat-card-actions>
+            <a mat-button [routerLink]="['/bus-routes']">
+              <mat-icon>arrow_back</mat-icon> Back to route list
+            </a>
+          </mat-card-actions>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>

@@ -1,0 +1,1 @@
+export enum BusType { AC=1, NonAc}

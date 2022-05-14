@@ -1,0 +1,53 @@
+<div class="view-container">
+    <mat-card class="mat-elevation-z5">
+        <mat-card-header >
+            <div mat-card-avatar ><img src="../../../../assets/schedule-time-svgrepo-com-2.svg" /></div>
+          <mat-card-title>Schedules</mat-card-title>
+          <mat-card-subtitle>Schedule List</mat-card-subtitle>
+          
+        </mat-card-header>
+        <mat-card-content>
+            <div class="link-right">
+                <a [routerLink]="['/schedule-create']" mat-mini-fab color="warn"><mat-icon>add</mat-icon></a>
+            </div>
+
+          <mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="journeyDate">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.journeyDate | date: 'yyyy-MM-dd'}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="departureTime">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Time</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.departureTime | date: 'hh:mm a'}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="minTimeToReportBeforeDeparture">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Reporting</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.minTimeToReportBeforeDeparture}} min before</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="busRoute">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Route</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.busRoute}}</mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="bus">
+                    <mat-header-cell *matHeaderCellDef mat-sort-header>Bus</mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.bus}}</mat-cell>
+                </ng-container>
+               
+                <ng-container matColumnDef="actions">
+                <mat-header-cell *matHeaderCellDef>Action </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                    <a [routerLink]="['/schedule-edit', element.scheduleId]" mat-icon-button><mat-icon>edit</mat-icon></a>
+                    <!-- <button (click)="delete(element)" mat-icon-button color="warn"><mat-icon>delete</mat-icon></button> -->
+                </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="columnList"></mat-header-row>
+                <mat-row *matRowDef="let row;columns:columnList"></mat-row>
+          </mat-table>
+          <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" [pageSize]="5" showFirstLastButtons></mat-paginator>
+      
+        </mat-card-content>
+    </mat-card>
+</div>
+   
+
+

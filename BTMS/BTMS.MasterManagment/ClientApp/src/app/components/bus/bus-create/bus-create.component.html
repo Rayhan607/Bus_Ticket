@@ -1,0 +1,95 @@
+<div class="view-container">
+    <div class="form-container">
+        <mat-card class="mat-elevation-z5">
+            <mat-card-header >
+              <mat-card-title>Create Bus</mat-card-title>
+              <mat-card-subtitle>Fill the form</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+               
+              <form [formGroup]="createForm" (ngSubmit)="save()">
+                <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>BusPlateNumber</mat-label>
+                    <input matInput type="text" formControlName="busPlateNumber">
+                    <mat-error *ngIf="createForm.controls['busPlateNumber'].hasError('required')">
+                      BusPlateNumber is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="createForm.touched && createForm.controls['busPlateNumber'].hasError('maxlength')">
+                        Type name can be <strong>50</strong> caharcters max
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>BusType</mat-label>
+                    <mat-select formControlName="busType">
+                      <mat-option  [value]="undefined">None</mat-option>
+                      <mat-option *ngFor="let op of busTypeOptions" [value]="op.value">{{op.label}}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="createForm.controls['busType'].hasError('required')">
+                      BusType is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="createForm.touched && createForm.controls['busType'].hasError('maxlength')">
+                        Type name can be <strong>50</strong> caharcters max
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>Capacity</mat-label>
+                    <input matInput type="text" formControlName="capacity">
+                    <mat-error *ngIf="createForm.controls['capacity'].hasError('required')">
+                      Capacity is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="createForm.touched && createForm.controls['capacity'].hasError('maxlength')">
+                        Type name can be <strong>50</strong> caharcters max
+                    </mat-error>
+                  </mat-form-field>
+
+                  <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>features</mat-label>
+                    <input matInput type="text" formControlName="features">
+                    <mat-error *ngIf="createForm.controls['features'].hasError('required')">
+                      features is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="createForm.touched && createForm.controls['features'].hasError('maxlength')">
+                        Type name can be <strong>50</strong> caharcters max
+                    </mat-error>
+                  </mat-form-field>
+
+                  
+
+                  <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>busModel</mat-label>
+                    <input matInput type="text" formControlName="busModel">
+                    <mat-error *ngIf="createForm.controls['busModel'].hasError('required')">
+                      busModel is <strong>required</strong>
+                    </mat-error>
+                    <mat-error *ngIf="createForm.touched && createForm.controls['busModel'].hasError('maxlength')">
+                        Type name can be <strong>50</strong> caharcters max
+                    </mat-error>
+                  </mat-form-field>
+                  <mat-form-field  appearance="fill" class="fw">
+                    <mat-label>Fare</mat-label>
+                    <input matInput type="text" formControlName="fare">
+                    <mat-error *ngIf="createForm.controls['fare'].hasError('required')">
+                      Fare is <strong>required</strong>
+                    </mat-error>
+                    
+                  </mat-form-field>
+                  <div  appearance="fill" class="fw">
+                    <button type="submit" [disabled]="createForm.invalid" mat-raised-button color="primary">Save</button>
+                  </div>
+                  
+              </form>
+         
+            </mat-card-content>
+            <mat-card-content>
+              <mat-card-actions>
+                <a mat-button [routerLink]="['/buses']"><mat-icon>arrow_back</mat-icon> Back to bus list</a>
+              </mat-card-actions>
+            </mat-card-content>
+          </mat-card>
+    </div>
+</div>
+   
+
+
